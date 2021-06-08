@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+    <h1>Update Task</h1>
+    <form action="/edit/{{task.id}}" method="POST">
+        <input type="text" name="title" id="title" value="{{todo.title}}">
+        {%if todo.complete == False%}
+        <span>Uncompleted</span>
+        {%else %}
+        <span>Done</span>
+        {%endif%}
+        <button><a href="/update/{{ todo.id }}">Update</a></button>
+        <input type="submit" value="Edit">
+    </form>

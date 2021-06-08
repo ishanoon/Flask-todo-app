@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+    <h2 style="font-size: large;">Hello, Welcome to todo app</h2>
+        <form action="/add" method="post">
+            <div>
+                <label>Add Todo</label>
+                <input type="text" name="title" placeholder="Enter Todo..." size="80%">
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    
+    <hr>
+    {%for todo in todos%}
+
+    <p>{{todo.id}} - {{todo.title}}
+
+        {%if todo.complete == False%}
+        <span>Uncompleted</span>
+        {%else %}
+        <span>Done</span>
+        {%endif%}
+        <button><a href="/update/{{ todo.id }}">Update</a></button>
+        <button><a href="/delete/{{ todo.id }}">Delete</a></button>
+        <!-- <button><a href="/edit/{{ todo.id }}">Edit</a></button> -->
+    </p>
+    {%endfor%}
+</body>
+</html>
